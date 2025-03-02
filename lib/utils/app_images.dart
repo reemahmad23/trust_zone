@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
-  
+  static const String logoImage = "assets/images/logo.png";
+  static const String iconCalendar  = "assets/images/Icon_calendar.jpg";
   /// Assets for imagesAvatar
   /// assets/images/avatar.svg
   static const String imagesAvatar = "assets/images/avatar.svg";
