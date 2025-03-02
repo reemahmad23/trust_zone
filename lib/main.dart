@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:trust_zone/features/home/presentation/views/places_view.dart';
+import 'package:trust_zone/utils/app_router.dart';
 
 void main() {
   runApp(const TrustZone());
@@ -12,9 +11,9 @@ class TrustZone extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
-      home: PlacesView(),
     );
   }
 }
