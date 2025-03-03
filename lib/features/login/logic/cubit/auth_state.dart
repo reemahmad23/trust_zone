@@ -37,7 +37,7 @@ class AuthCubit extends Cubit<AuthState> {
 
       await Future.delayed(Duration(seconds: 2));
 
-      if (email == "test@example.com" && password == "password123") {
+      if (email == "shimaa7@gmail.com" && password == "2244668800") {
         emit(AuthSuccess());
       } else {
         emit(AuthFailure( "Invalid email or password"));
