@@ -10,7 +10,7 @@ class PlaceBookingListView extends StatelessWidget {
       itemCount: 10,
       itemBuilder: (context, index){
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
             child: const PlaceBookingItem(),
           );
       },

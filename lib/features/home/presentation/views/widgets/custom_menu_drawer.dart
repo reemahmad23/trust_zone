@@ -14,7 +14,6 @@ class CustomMenuDrawer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             DrawerHeader(
-             // decoration: const BoxDecoration(color: Color(0xFF62B6CB)),
               child: Row(
                 children: [
                   CircleAvatar(
