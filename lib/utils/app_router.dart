@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:trust_zone/features/home/presentation/views/home_view.dart';
 import 'package:trust_zone/features/home/presentation/views/places_view.dart';
 
 abstract class AppRouter {
@@ -6,7 +7,7 @@ abstract class AppRouter {
   routes: <RouteBase>[
     GoRoute(
       path: '/',
-      builder: (context, state) => const PlacesView(),
+      builder: (context, state) => const HomeView(),
 
     ),
   ]

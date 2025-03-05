@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:trust_zone/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:trust_zone/features/home/presentation/views/widgets/custom_search_text_field.dart';
 import 'package:trust_zone/features/home/presentation/views/widgets/search_category_list_view.dart';
 import 'package:trust_zone/utils/app_styles.dart';
@@ -9,33 +8,25 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-      
-        Scaffold(
-          bottomNavigationBar: CustomBottomNavigationBar(),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomAppBar(),
-            
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-                  child: CustomSearchTextField(),
-                ),
-                Text('Categories',
-                style: AppStyles.styleBold24,
-                ),
-            
-                Expanded(
-                  child: SearchCategoryListView(),
-                  ),
-              ],
-            ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Adjusted padding
+            child: CustomSearchTextField(),
           ),
-        );
-  
+          Text(
+            'Categories',
+            style: AppStyles.styleBold24,
+          ),
+          Expanded(
+            child: SearchCategoryListView(),
+          ),
+        ],
+      ),
+    );
   }
 }
 

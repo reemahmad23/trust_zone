@@ -8,35 +8,34 @@ import 'features/login/logic/cubit/login_cubit.dart';
 void main() {
   runApp(TrustZone());
 }
-  class TrustZone extends StatelessWidget {
+  // class TrustZone extends StatelessWidget {
+  // const TrustZone({super.key});
+
+  // @override
+  // Widget build(BuildContext context) {
+  // return MultiBlocProvider(
+  // providers: [
+  // BlocProvider(create: (context) => AuthCubit()),
+  // BlocProvider(create: (context) => LoginCubit()),
+  // ],
+  // child: MaterialApp(
+  // title: 'Flutter Clean Architecture',
+  // initialRoute: AppRoutes.logoView,
+  // onGenerateRoute: AppRoutes.generateRoute,
+  // ),
+  // );
+  // }
+  // }
+
+class TrustZone extends StatelessWidget {
   const TrustZone({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-  return MultiBlocProvider(
-  providers: [
-  BlocProvider(create: (context) => AuthCubit()),
-  BlocProvider(create: (context) => LoginCubit()),
-  ],
-  child: MaterialApp(
-  title: 'Flutter Clean Architecture',
-  initialRoute: AppRoutes.logoView,
-  onGenerateRoute: AppRoutes.generateRoute,
-  ),
-  );
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
+      debugShowCheckedModeBanner: false,
+    );
   }
-  }
-
-// class TrustZone extends StatelessWidget {
-//   const TrustZone({super.key});
-//
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp.router(
-//       //routerConfig: AppRouter.router,
-//       debugShowCheckedModeBanner: false,
-//     );
-//   }
-// }
-//
+}
