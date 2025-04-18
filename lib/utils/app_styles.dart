@@ -53,6 +53,13 @@ abstract class AppStyles {
     fontWeight: FontWeight.w400,
   );
 
+  static const TextStyle styleRegular24 = TextStyle(
+    color: Colors.black,
+    fontSize: 24,
+    fontFamily: 'ABeeZee',
+    fontWeight: FontWeight.w400,
+  );
+
   static const TextStyle styleSemiBold14 = TextStyle(
     color: Color(0xFF656565),
     fontSize: 14,

@@ -4,9 +4,13 @@ import 'package:trust_zone/utils/app_router.dart';
 import 'package:trust_zone/utils/app_routes.dart';
 import 'features/login/logic/cubit/auth_state.dart';
 import 'features/login/logic/cubit/login_cubit.dart';
-
+import 'package:device_preview/device_preview.dart';
 void main() {
-  runApp(TrustZone());
+  runApp(
+    DevicePreview(
+    enabled: true,
+    builder: (context) => const TrustZone(),
+  ));
 }
   // class TrustZone extends StatelessWidget {
   // const TrustZone({super.key});
@@ -34,8 +38,15 @@ class TrustZone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
     );
   }
 }
+
+
+
+
+

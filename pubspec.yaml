@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  device_preview: ^1.2.0
   flutter_svg: ^2.0.17
   get: ^4.7.2
   flutter:
@@ -65,6 +66,7 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/Icon_calendar.jpg
+    - assets/images/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

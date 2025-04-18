@@ -50,6 +50,7 @@ class Assets {
   /// assets/images/Vector 708.svg
   static const String imagesVector708 = "assets/images/Vector 708.svg";
   static const String imagesRestaurant = "assets/images/download.png";
+  static const String bot ="assets/images/bot 2.png";
 
 }
 

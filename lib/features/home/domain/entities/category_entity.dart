@@ -1,6 +1,6 @@
 class CategoryEntity {
-  final String color;
+  final String image;
   final String title;
 
-  CategoryEntity({required this.color, required this.title}); 
+  CategoryEntity({required this.image, required this.title}); 
 }
