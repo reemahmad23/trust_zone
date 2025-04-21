@@ -9,4 +9,3 @@ class ChatBotView extends StatelessWidget {
     return ChatBotViewBody();
   }
 }
-

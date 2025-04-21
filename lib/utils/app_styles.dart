@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trust_zone/utils/values_managers.dart';
 
-
 import 'color_managers.dart';
 
 abstract class AppStyles {
@@ -26,7 +25,7 @@ abstract class AppStyles {
   );
 
   static TextStyle styleSemiBold24 = TextStyle(
-    color:ColorManager.primary ,
+    color: ColorManager.primary,
     fontSize: AppSize.s24,
     fontFamily: 'Alef',
     fontWeight: FontWeight.w700,
@@ -87,8 +86,4 @@ abstract class AppStyles {
     fontFamily: 'ABeeZee',
     fontWeight: FontWeight.w600,
   );
-
-
-
-
 }

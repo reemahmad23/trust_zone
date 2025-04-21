@@ -18,7 +18,9 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
     if (value == null || value.trim().isEmpty) {
       return "Please enter your email";
     }
-    final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    final emailRegex = RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+    );
     if (!emailRegex.hasMatch(value)) {
       return "Invalid email format";
     }
@@ -30,7 +32,11 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
     return Scaffold(
       backgroundColor: ColorManager.primary,
       body: Padding(
-        padding: EdgeInsets.only(top: AppSize.s100, left: AppSize.s20, right: AppSize.s20),
+        padding: EdgeInsets.only(
+          top: AppSize.s100,
+          left: AppSize.s20,
+          right: AppSize.s20,
+        ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +67,11 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
                           // **تنفيذ عملية استعادة كلمة المرور**
                           // يمكنك إضافة أي منطق هنا مثل إرسال بريد إلكتروني لاستعادة كلمة المرور
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Password reset link sent to your email")),
+                            SnackBar(
+                              content: Text(
+                                "Password reset link sent to your email",
+                              ),
+                            ),
                           );
                         }
                       },

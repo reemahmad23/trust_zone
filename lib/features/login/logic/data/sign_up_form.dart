@@ -16,10 +16,10 @@ class _SignUpFormState extends State<SignUpForm> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
   final TextEditingController disabilityTypeController =
-  TextEditingController();
+      TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
-  TextEditingController();
+      TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   void _selectDate() async {
@@ -48,8 +48,9 @@ class _SignUpFormState extends State<SignUpForm> {
     if (value == null || value.trim().isEmpty) {
       return "Email cannot be empty";
     }
-    final emailRegex =
-    RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    final emailRegex = RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+    );
     if (!emailRegex.hasMatch(value)) {
       return "Invalid email format";
     }
@@ -62,7 +63,6 @@ class _SignUpFormState extends State<SignUpForm> {
     }
     return null;
   }
-
 
   String? validateDisabilityType(String? value) {
     if (value == null || value.trim().isEmpty) {
@@ -164,21 +164,21 @@ class _SignUpFormState extends State<SignUpForm> {
               return state is AuthLoading
                   ? Center(child: CircularProgressIndicator())
                   : CustomButton(
-                label: "Sign Up",
-                onPressedAction: () {
-                  if (formKey.currentState!.validate()) {
-                    context.read<AuthCubit>().signUp(
-                      username: usernameController.text,
-                      email: emailController.text,
-                      age: ageController.text,
-                      disabilityType: disabilityTypeController.text,
-                      password: passwordController.text,
-                    );
-                  }
-                },
-                backgroundColor: ColorManager.mintGreen,
-                textColor: ColorManager.black,
-              );
+                    label: "Sign Up",
+                    onPressedAction: () {
+                      if (formKey.currentState!.validate()) {
+                        context.read<AuthCubit>().signUp(
+                          username: usernameController.text,
+                          email: emailController.text,
+                          age: ageController.text,
+                          disabilityType: disabilityTypeController.text,
+                          password: passwordController.text,
+                        );
+                      }
+                    },
+                    backgroundColor: ColorManager.mintGreen,
+                    textColor: ColorManager.black,
+                  );
             },
           ),
         ],

@@ -1,14 +1,22 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 abstract class AuthState {}
+
 class AuthInitial extends AuthState {}
+
 class AuthLoading extends AuthState {}
+
 class AuthSuccess extends AuthState {}
+
 class AuthFailure extends AuthState {
   final String error;
   AuthFailure(this.error);
 }
+
 class AuthLoginPage extends AuthState {}
+
 class AuthSignUpPage extends AuthState {}
+
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
   void signUp({
@@ -30,25 +38,25 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-
   Future<void> login({required String email, required String password}) async {
     emit(AuthLoading());
     try {
-
       await Future.delayed(Duration(seconds: 2));
 
       if (email == "shimaa7@gmail.com" && password == "2244668800") {
         emit(AuthSuccess());
       } else {
-        emit(AuthFailure( "Invalid email or password"));
+        emit(AuthFailure("Invalid email or password"));
       }
     } catch (e) {
-      emit(AuthFailure( e.toString()));
+      emit(AuthFailure(e.toString()));
     }
   }
+
   void navigateToLogin() {
     emit(AuthLoginPage());
   }
+
   void navigateToSignUp() {
     emit(AuthSignUpPage());
   }

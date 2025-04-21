@@ -17,16 +17,18 @@ class LoginView extends StatelessWidget {
       backgroundColor: ColorManager.primary,
       body: Padding(
         padding: EdgeInsets.only(
-            top: AppSize.s250, left: AppSize.s20, right: AppSize.s20),
+          top: AppSize.s250,
+          left: AppSize.s20,
+          right: AppSize.s20,
+        ),
         child: BlocConsumer<AuthCubit, AuthState>(
           listener: (context, state) {
             if (state is AuthSuccess) {
               Navigator.pushNamed(context, AppRoutes.homeView);
-            }
-            else if (state is AuthFailure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(state.error)),
-              );
+            } else if (state is AuthFailure) {
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text(state.error)));
             }
           },
           builder: (context, state) {
@@ -34,10 +36,7 @@ class LoginView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    AppStrings.login,
-                    style: AppStyles.regular1,
-                  ),
+                  Text(AppStrings.login, style: AppStyles.regular1),
                   SizedBox(height: AppSize.s35),
                   LoginForm(),
                 ],

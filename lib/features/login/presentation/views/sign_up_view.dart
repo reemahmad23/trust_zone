@@ -19,9 +19,9 @@ class SignUpView extends StatelessWidget {
             if (state is AuthSuccess) {
               Navigator.pushNamed(context, AppRoutes.homeView);
             } else if (state is AuthFailure) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(state.error)),
-              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text(state.error)));
             }
           },
           builder: (context, state) {
@@ -29,19 +29,23 @@ class SignUpView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                      "Sign Up",
-                      style: AppStyles.regular1
-                  ),
+                  Text("Sign Up", style: AppStyles.regular1),
                   SizedBox(height: AppSize.s40),
                   SignUpForm(),
                   SizedBox(height: AppSize.s20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Already have an account? ",style: AppStyles.subText,),
+                      Text(
+                        "Already have an account? ",
+                        style: AppStyles.subText,
+                      ),
                       GestureDetector(
-                        onTap: () => Navigator.pushNamed(context, AppRoutes.loginView),
+                        onTap:
+                            () => Navigator.pushNamed(
+                              context,
+                              AppRoutes.loginView,
+                            ),
                         child: Text(
                           "Login",
                           style: TextStyle(

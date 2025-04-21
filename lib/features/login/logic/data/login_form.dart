@@ -8,13 +8,15 @@ import '../../../../utils/values_managers.dart';
 import '../../presentation/widgets/custom_button.dart';
 import '../../presentation/widgets/custom_text_field.dart';
 import '../cubit/auth_state.dart';
-class LoginForm extends StatefulWidget{
+
+class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
 
   @override
-  _LoginFormState createState() =>_LoginFormState();
+  _LoginFormState createState() => _LoginFormState();
 }
-class _LoginFormState extends State<LoginForm>{
+
+class _LoginFormState extends State<LoginForm> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -22,12 +24,15 @@ class _LoginFormState extends State<LoginForm>{
     if (value == null || value.trim().isEmpty) {
       return AppStrings.pleaseEnterYourEmail;
     }
-    final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
-    if (!emailRegex.hasMatch(value)){
+    final emailRegex = RegExp(
+      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+    );
+    if (!emailRegex.hasMatch(value)) {
       return AppStrings.invalidEmailFormat;
     }
     return null;
   }
+
   String? validatePassword(String? value) {
     if (value == null || value.trim().isEmpty) {
       return AppStrings.pleaseEnterYourPassword;
@@ -40,13 +45,19 @@ class _LoginFormState extends State<LoginForm>{
     }
     return null;
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.error, style: TextStyle(color: ColorManager.error))),
+            SnackBar(
+              content: Text(
+                state.error,
+                style: TextStyle(color: ColorManager.error),
+              ),
+            ),
           );
         }
       },
@@ -71,10 +82,14 @@ class _LoginFormState extends State<LoginForm>{
               Align(
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
-                  onTap: ()=> Navigator.pushNamed(context, AppRoutes.forgotPasswordView),
+                  onTap:
+                      () => Navigator.pushNamed(
+                        context,
+                        AppRoutes.forgotPasswordView,
+                      ),
                   child: Text(
-                      AppStrings.forgotPassword,
-                      style:AppStyles.subText
+                    AppStrings.forgotPassword,
+                    style: AppStyles.subText,
                   ),
                 ),
               ),
@@ -82,30 +97,29 @@ class _LoginFormState extends State<LoginForm>{
               state is AuthLoading
                   ? Center(child: CircularProgressIndicator())
                   : CustomButton(
-                label: AppStrings.login,
-                onPressedAction: () {
-                  if (formKey.currentState!.validate()) {
-                    context.read<AuthCubit>().login(
-                      email: emailController.text,
-                      password: passwordController.text,
-                    );
-                  }
-                },
-                backgroundColor: ColorManager.mintGreen,
-                textColor: ColorManager.black,
-                width: double.infinity,
-              ),
-              SizedBox(height: AppSize.s40,),
+                    label: AppStrings.login,
+                    onPressedAction: () {
+                      if (formKey.currentState!.validate()) {
+                        context.read<AuthCubit>().login(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        );
+                      }
+                    },
+                    backgroundColor: ColorManager.mintGreen,
+                    textColor: ColorManager.black,
+                    width: double.infinity,
+                  ),
+              SizedBox(height: AppSize.s40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(AppStrings.dontHaveAccount,
-                      style: AppStyles.subText),
+                  Text(AppStrings.dontHaveAccount, style: AppStyles.subText),
                   GestureDetector(
-                    onTap: () =>
-                        Navigator.pushNamed(context, AppRoutes.signUpView),
-                    child:
-                    Text(AppStrings.signUp, style: AppStyles.subText),
+                    onTap:
+                        () =>
+                            Navigator.pushNamed(context, AppRoutes.signUpView),
+                    child: Text(AppStrings.signUp, style: AppStyles.subText),
                   ),
                 ],
               ),

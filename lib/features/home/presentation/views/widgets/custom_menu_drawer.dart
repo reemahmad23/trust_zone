@@ -9,7 +9,7 @@ class CustomMenuDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: const Color(0xFF62B6CB), 
+        color: const Color(0xFF62B6CB),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -25,14 +25,8 @@ class CustomMenuDrawer extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text(
-                        "Roaa Emad",
-                        style: AppStyles.styleBold16,
-                      ),
-                      Text(
-                        "roaae@gmail.com",
-                        style: AppStyles.styleSemiBold16,
-                      ),
+                      Text("Roaa Emad", style: AppStyles.styleBold16),
+                      Text("roaae@gmail.com", style: AppStyles.styleSemiBold16),
                     ],
                   ),
                 ],
@@ -41,7 +35,7 @@ class CustomMenuDrawer extends StatelessWidget {
             _buildDrawerItem(Icons.settings, "Settings"),
             _buildDrawerItem(Icons.notifications, "Notifications"),
             _buildDrawerItem(Icons.event, "Events"),
-        
+
             const Spacer(),
             Divider(color: Colors.white30),
             _buildDrawerItem(Icons.help_outline, "Help"),

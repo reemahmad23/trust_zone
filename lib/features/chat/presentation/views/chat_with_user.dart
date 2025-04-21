@@ -15,17 +15,18 @@ class ChatWithUser extends StatelessWidget {
         ),
         title: Row(
           children: [
-            CircleAvatar(
-              backgroundColor: Colors.blue.shade900,
-              radius: 18,
-            ),
+            CircleAvatar(backgroundColor: Colors.blue.shade900, radius: 18),
             SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'username',
-                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
                 ),
                 Row(
                   children: [
@@ -38,10 +39,9 @@ class ChatWithUser extends StatelessWidget {
                   ],
                 ),
               ],
-            )
+            ),
           ],
         ),
-      
       ),
       body: Column(
         children: [
@@ -99,9 +99,7 @@ class ChatWithUser extends StatelessWidget {
             Container(
               width: 100,
               height: 20,
-              child: CustomPaint(
-                painter: WaveformPainter(isDark: isMe),
-              ),
+              child: CustomPaint(painter: WaveformPainter(isDark: isMe)),
             ),
           ],
         ),
@@ -123,9 +121,7 @@ class ChatWithUser extends StatelessWidget {
     return SafeArea(
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-        decoration: BoxDecoration(
-          color: Colors.grey.shade100,
-        ),
+        decoration: BoxDecoration(color: Colors.grey.shade100),
         child: Row(
           children: [
             Expanded(
@@ -141,7 +137,7 @@ class ChatWithUser extends StatelessWidget {
             CircleAvatar(
               backgroundColor: Colors.blue.shade700,
               child: Icon(Icons.mic, color: Colors.white),
-            )
+            ),
           ],
         ),
       ),
@@ -149,24 +145,28 @@ class ChatWithUser extends StatelessWidget {
   }
 }
 
-
 class WaveformPainter extends CustomPainter {
   final bool isDark;
   WaveformPainter({required this.isDark});
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = isDark ? Colors.white : Colors.black
-      ..strokeWidth = 2
-      ..strokeCap = StrokeCap.round;
+    final paint =
+        Paint()
+          ..color = isDark ? Colors.white : Colors.black
+          ..strokeWidth = 2
+          ..strokeCap = StrokeCap.round;
 
     final barCount = 15;
     final spacing = size.width / (barCount * 2);
     for (int i = 0; i < barCount; i++) {
       double x = spacing + i * spacing * 2;
       double height = (i % 2 == 0 ? 0.5 : 1.0) * size.height;
-      canvas.drawLine(Offset(x, size.height / 2 - height / 2), Offset(x, size.height / 2 + height / 2), paint);
+      canvas.drawLine(
+        Offset(x, size.height / 2 - height / 2),
+        Offset(x, size.height / 2 + height / 2),
+        paint,
+      );
     }
   }
 

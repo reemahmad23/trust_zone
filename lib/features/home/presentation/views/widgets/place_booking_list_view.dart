@@ -8,13 +8,12 @@ class PlaceBookingListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: 10,
-      itemBuilder: (context, index){
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-            child: const PlaceBookingItem(),
-          );
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          child: const PlaceBookingItem(),
+        );
       },
-
     );
   }
 }

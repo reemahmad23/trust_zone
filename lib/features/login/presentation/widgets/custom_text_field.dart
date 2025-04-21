@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../utils/values_managers.dart';
+
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final String labelText;
@@ -24,8 +25,10 @@ class CustomTextField extends StatefulWidget {
     this.borderColor = Colors.white,
     this.textColor = Colors.black,
     this.backgroundColor = Colors.white,
-    this.contentPadding =
-    const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+    this.contentPadding = const EdgeInsets.symmetric(
+      vertical: 12,
+      horizontal: 16,
+    ),
     this.borderRadius = AppSize.s10,
   });
 
@@ -47,9 +50,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
         fillColor: widget.backgroundColor,
         labelText: widget.labelText,
         labelStyle: TextStyle(color: widget.textColor),
-        prefixIcon: widget.prefixIcon != null
-            ? Icon(widget.prefixIcon, color: widget.textColor)
-            : null,
+        prefixIcon:
+            widget.prefixIcon != null
+                ? Icon(widget.prefixIcon, color: widget.textColor)
+                : null,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           borderSide: BorderSide(color: widget.borderColor, width: 2),
@@ -65,21 +69,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
         contentPadding: widget.contentPadding,
         // يتم عرض الـ suffixIcon المُمرر إذا كان موجوداً،
         // أما إذا لم يكن موجوداً وكان الحقل لكلمة مرور فيتم عرض زر الإخفاء/الإظهار.
-        suffixIcon: widget.suffixIcon ??
+        suffixIcon:
+            widget.suffixIcon ??
             (widget.isPassword
                 ? IconButton(
-              icon: Icon(
-                _isPasswordHidden
-                    ? Icons.visibility_off
-                    : Icons.visibility,
-                color: widget.textColor,
-              ),
-              onPressed: () {
-                setState(() {
-                  _isPasswordHidden = !_isPasswordHidden;
-                });
-              },
-            )
+                  icon: Icon(
+                    _isPasswordHidden ? Icons.visibility_off : Icons.visibility,
+                    color: widget.textColor,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _isPasswordHidden = !_isPasswordHidden;
+                    });
+                  },
+                )
                 : null),
       ),
       validator: widget.validator,

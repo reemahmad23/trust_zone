@@ -18,26 +18,26 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
-      elevation: 0,
-      backgroundColor: const Color(0xFFFAFAFA),
-      leading: IconButton(
-      onPressed: () {
-      scaffoldKey.currentState!.openDrawer();
-    },
-    icon: const Icon(Icons.menu),
-  ),
-  actions: [
-    Padding(
-      padding: const EdgeInsets.only(right: 15.0),
-      child: IconButton(
-        icon: Image.network(Assets.imagesProfile1),
-        onPressed: () {
-          // Add profile action here
-        },
+        elevation: 0,
+        backgroundColor: const Color(0xFFFAFAFA),
+        leading: IconButton(
+          onPressed: () {
+            scaffoldKey.currentState!.openDrawer();
+          },
+          icon: const Icon(Icons.menu),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: IconButton(
+              icon: Image.network(Assets.imagesProfile1),
+              onPressed: () {
+                // Add profile action here
+              },
+            ),
+          ),
+        ],
       ),
-    ),
-  ],
-),
       drawer: const CustomMenuDrawer(),
 
       body: GestureDetector(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../../../../utils/values_managers.dart';
 
 class CustomButton extends StatelessWidget {
@@ -29,11 +28,14 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(backgroundColor),
         padding: MaterialStateProperty.all(
-          padding ?? EdgeInsets.symmetric(vertical: AppSize.s16, horizontal: AppSize.s32),
+          padding ??
+              EdgeInsets.symmetric(
+                vertical: AppSize.s16,
+                horizontal: AppSize.s32,
+              ),
         ),
         minimumSize: MaterialStateProperty.all(
           Size(width ?? double.infinity, height ?? AppSize.s50),

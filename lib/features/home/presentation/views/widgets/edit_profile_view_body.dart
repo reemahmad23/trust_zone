@@ -11,13 +11,14 @@ class EditProfileViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          
           Stack(
             children: [
               const CircleAvatar(
                 radius: 40,
                 backgroundColor: Colors.grey,
-                backgroundImage: AssetImage(Assets.imagesProfile1), // Ensure the image exists
+                backgroundImage: AssetImage(
+                  Assets.imagesProfile1,
+                ), // Ensure the image exists
               ),
               Positioned(
                 bottom: 5,
@@ -27,36 +28,28 @@ class EditProfileViewBody extends StatelessWidget {
                   backgroundColor: Colors.white,
                   child: IconButton(
                     icon: const Icon(Icons.camera_alt, size: 15),
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () {},
                   ),
                 ),
               ),
             ],
           ),
-          //const SizedBox(height: 10),
 
-          
+          //const SizedBox(height: 10),
           const ProfileTextField(label: "Username"),
           const ProfileTextField(label: "Email"),
           const ProfileTextField(label: "Password", obscureText: true),
 
-          
           const ProfileDropdownField(label: "Date of Birth"),
 
-          
           const ProfileDropdownField(label: "Disability Type"),
 
           const SizedBox(height: 5),
 
-          
           SizedBox(
             width: 220,
             child: ElevatedButton(
-              onPressed: () {
-                
-              },
+              onPressed: () {},
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFFBEE9E8),
                 padding: const EdgeInsets.symmetric(vertical: 12),
@@ -75,7 +68,6 @@ class EditProfileViewBody extends StatelessWidget {
     );
   }
 }
-
 
 class ProfileTextField extends StatelessWidget {
   final String label;
@@ -111,14 +103,10 @@ class ProfileTextField extends StatelessWidget {
   }
 }
 
-
 class ProfileDropdownField extends StatelessWidget {
   final String label;
 
-  const ProfileDropdownField({
-    required this.label,
-    super.key,
-  });
+  const ProfileDropdownField({required this.label, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -134,9 +122,7 @@ class ProfileDropdownField extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: DropdownButtonFormField<String>(
-            decoration: const InputDecoration(
-              border: InputBorder.none,
-            ),
+            decoration: const InputDecoration(border: InputBorder.none),
             items: const [
               DropdownMenuItem(value: "Option 1", child: Text("Option 1")),
               DropdownMenuItem(value: "Option 2", child: Text("Option 2")),

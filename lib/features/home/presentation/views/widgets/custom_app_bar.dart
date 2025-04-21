@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:trust_zone/utils/app_images.dart';
 
@@ -11,10 +10,9 @@ class CustomAppBar extends StatelessWidget {
       children: [
         Icon(Icons.menu),
         Spacer(),
-        Image.network(Assets.imagesProfile1,
-        ),
-       // Image(image: ),
-      ]
+        Image.network(Assets.imagesProfile1),
+        // Image(image: ),
+      ],
     );
   }
 }

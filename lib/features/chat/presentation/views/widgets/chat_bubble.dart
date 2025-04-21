@@ -4,8 +4,8 @@ class ChatBubble extends StatelessWidget {
   final bool isUser;
   final String message;
 
-  const ChatBubble ({Key? key, required this.isUser, required this.message})
-      : super(key: key);
+  const ChatBubble({Key? key, required this.isUser, required this.message})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,11 @@ class ChatBubble extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 14,
                       backgroundColor: Colors.grey[500],
-                      child: Icon(Icons.smart_toy, size: 16, color: Colors.white),
+                      child: Icon(
+                        Icons.smart_toy,
+                        size: 16,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 Flexible(child: Text(message)),
@@ -40,17 +44,16 @@ class ChatBubble extends StatelessWidget {
             ),
           ),
 
-  
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              if(isUser) 
-              TextButton.icon(
-                onPressed: () {},
-                icon: Icon(Icons.edit, size: 16),
-                label: Text("Edit"),
-              ),
-              
+              if (isUser)
+                TextButton.icon(
+                  onPressed: () {},
+                  icon: Icon(Icons.edit, size: 16),
+                  label: Text("Edit"),
+                ),
+
               TextButton.icon(
                 onPressed: () {},
                 icon: Icon(Icons.copy, size: 16),

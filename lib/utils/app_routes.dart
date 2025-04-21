@@ -9,7 +9,7 @@ class AppRoutes {
   static const String logoView = "/";
   static const String loginView = "/login";
   static const String signUpView = "/signup";
-  static const String homeView ="/home";
+  static const String homeView = "/home";
   static const String forgotPasswordView = '/forgotPassword';
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -25,9 +25,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => ForgotPasswordView());
       default:
         return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(child: Text("No Route Found")),
-          ),
+          builder: (_) => Scaffold(body: Center(child: Text("No Route Found"))),
         );
     }
   }
