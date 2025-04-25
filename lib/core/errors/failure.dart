@@ -1,12 +1,17 @@
 abstract class Failure {
   final String message;
-  const Failure(this.message);
+  
+  Failure(this.message);  // Constructor to accept the error message
 }
 
 class ServerFailure extends Failure {
-  const ServerFailure([super.message = 'Server failure']);
+  ServerFailure() : super('Server error occurred');  // Default message for server failure
 }
 
 class CacheFailure extends Failure {
-  const CacheFailure([super.message = 'Cache failure']);
+  CacheFailure() : super('Cache error occurred');  // Default message for cache failure
+}
+
+class NetworkFailure extends Failure {
+  NetworkFailure() : super('Network error occurred');  // Default message for network failure
 }

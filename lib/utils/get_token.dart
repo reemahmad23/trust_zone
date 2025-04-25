@@ -1,7 +1,0 @@
-
-import 'package:shared_preferences/shared_preferences.dart';
-
-Future<String> getTokenFromSharedPreferences() async {
-  final prefs = await SharedPreferences.getInstance();
-  return prefs.getString('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0NTU1IiwianRpIjoiODlhZTVjOTItNGRmMy00ZmQxLWIwZjEtZTkyNWViZmViYzI1IiwiVWlkIjoiMjk2OThkMDMtMzdlNy00ZjU0LWIyMmEtYWVjODJiZGQ1NzUyIiwiZXhwIjoxNzQ3NjAxNTQwLCJpc3MiOiJUcnVzdFpvbmUiLCJhdWQiOiJUcnVzdFpvbmVVc2VyIn0.Btbqv7fGSVyBSBDNJ_wT5HIPmvL7z4wTCszOxxs9Z28') ?? '';
-}
