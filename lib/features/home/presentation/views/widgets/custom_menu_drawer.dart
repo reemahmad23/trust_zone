@@ -1,63 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:trust_zone/utils/app_images.dart';
-import 'package:trust_zone/utils/app_styles.dart';
 
-class CustomMenuDrawer extends StatelessWidget {
-  const CustomMenuDrawer({super.key});
-
+class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Container(
-        color: const Color(0xFF62B6CB),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            DrawerHeader(
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    radius: 30,
-                    backgroundImage: Image.network(Assets.imagesProfile1).image,
-                  ),
-                  const SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("Roaa Emad", style: AppStyles.styleBold16),
-                      Text("roaae@gmail.com", style: AppStyles.styleSemiBold16),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            _buildDrawerItem(Icons.settings, "Settings"),
-            _buildDrawerItem(Icons.notifications, "Notifications"),
-            _buildDrawerItem(Icons.event, "Events"),
-
-            const Spacer(),
-            Divider(color: Colors.white30),
-            _buildDrawerItem(Icons.help_outline, "Help"),
-            _buildDrawerItem(Icons.logout, "Log out"),
-            const SizedBox(height: 20),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDrawerItem(IconData icon, String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: Row(
+      backgroundColor: Color(0xFF62B6CB),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, color: Colors.black, size: 24),
-          const SizedBox(width: 15),
-          Text(
-            title,
-            style: const TextStyle(color: Colors.black, fontSize: 16),
+          DrawerHeader(
+            child: Row(
+              children: [
+                CircleAvatar(child: Icon(Icons.person)),
+                SizedBox(width: 10),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('username', style: TextStyle(color: Colors.white)),
+                    Text('rrrrr@gmail.com', style: TextStyle(color: Colors.white70)),
+                  ],
+                ),
+              ],
+            ),
           ),
+          ListTile(leading: Icon(Icons.settings), title: Text('Settings')),
+          ListTile(leading: Icon(Icons.notifications), title: Text('Notifications')),
+          ListTile(leading: Icon(Icons.event), title: Text('Events')),
+          SizedBox(height: 50),
+          ListTile(leading: Icon(Icons.help), title: Text('Help')),
+          ListTile(leading: Icon(Icons.logout), title: Text('Log out')),
         ],
       ),
     );

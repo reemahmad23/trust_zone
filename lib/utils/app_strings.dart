@@ -1,5 +1,3 @@
-import 'package:trust_zone/features/home/domain/use_cases/get_profile_use_case.dart';
-import 'package:trust_zone/utils/set_up_service_locator.dart';
 
 abstract class AppStrings {
   static String login = "LogIn";

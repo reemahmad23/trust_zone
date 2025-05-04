@@ -11,8 +11,8 @@ class Assets {
   static const String imagesIconHome = "assets/images/Icon_home.svg";
   static const String imagesPhoto = "assets/images/Photo.svg";
   static const String imagesProfile1 = "assets/images/profile 1.jpg";
-  static const String imagesUnion1 = "assets/images/union-1.svg";
+  static const String imagesUnion1 = "assets/images/union-1.png";
   static const String imagesVector708 = "assets/images/Vector 708.svg";
   static const String imagesRestaurant = "assets/images/download.png";
-  static const String bot = "assets/images/bot 2.png";
+  static const String bot = "assets/images/bot2.png";
 }
