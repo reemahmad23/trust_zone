@@ -1,6 +1,6 @@
-class CategoryEntity {
-  final String image;
-  final String title;
+class Category {
+  final int id;
+  final String name;
 
-  CategoryEntity({required this.image, required this.title});
+  Category({required this.id, required this.name});
 }

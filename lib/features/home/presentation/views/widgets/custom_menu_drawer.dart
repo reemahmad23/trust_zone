@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -11,7 +12,14 @@ class AppDrawer extends StatelessWidget {
           DrawerHeader(
             child: Row(
               children: [
-                CircleAvatar(child: Icon(Icons.person)),
+                CircleAvatar(
+                    child: IconButton(
+                    icon: Icon(Icons.person),
+                    onPressed: () {
+                    context.push('/profile-view');
+                  },
+                ),
+              ),
                 SizedBox(width: 10),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -27,7 +35,7 @@ class AppDrawer extends StatelessWidget {
           ListTile(leading: Icon(Icons.settings), title: Text('Settings')),
           ListTile(leading: Icon(Icons.notifications), title: Text('Notifications')),
           ListTile(leading: Icon(Icons.event), title: Text('Events')),
-          SizedBox(height: 50),
+          SizedBox(height: 220),
           ListTile(leading: Icon(Icons.help), title: Text('Help')),
           ListTile(leading: Icon(Icons.logout), title: Text('Log out')),
         ],

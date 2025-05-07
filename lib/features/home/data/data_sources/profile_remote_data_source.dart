@@ -1,6 +1,6 @@
 
 import 'package:trust_zone/features/home/data/models/profile_model/profile_model.dart';
-import 'package:trust_zone/utils/api_service.dart';
+import 'package:trust_zone/utils/profile_api_service.dart';
 
 abstract class ProfileRemoteDataSource {
   Future<UserProfileModel> getProfile();
@@ -8,7 +8,7 @@ abstract class ProfileRemoteDataSource {
 }
 
 class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
-  final ApiService apiService;
+  final ProfileApiService apiService;
 
   ProfileRemoteDataSourceImpl(this.apiService);
 

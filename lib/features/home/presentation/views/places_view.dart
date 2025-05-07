@@ -1,42 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:trust_zone/features/home/presentation/manager/branch_cubit/branch_cubit.dart';
+import 'package:trust_zone/features/home/presentation/manager/branch_cubit/branch_state.dart';
+import 'package:trust_zone/utils/set_up_service_locator.dart';
 
 class PlacesView extends StatelessWidget {
-  final List<Map<String, String>> restaurants = [
-    {"name": "tikiat Younes", "access": "partially accessible", "image": ""},
-    {"name": "Arkan", "access": "partially accessible", "image": ""},
-    {"name": "Restaurant name", "access": "partially accessible", "image": ""},
-    {"name": "Restaurant name", "access": "partially accessible", "image": ""},
-    {"name": "Restaurant name", "access": "fully accessible", "image": ""},
-  ];
+  final int categoryId;
+  final String categoryName;
 
-    PlacesView({super.key});
+  const PlacesView({
+    super.key,
+    required this.categoryId,
+    required this.categoryName,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Restaurants")),
-      body: ListView.builder(
-        itemCount: restaurants.length,
-        itemBuilder: (context, index) {
-          final restaurant = restaurants[index];
-          return Card(
-            margin: EdgeInsets.all(8),
-            child: ListTile(
-              leading: restaurant['image']!.isNotEmpty
-                  ? Image.asset(restaurant['image']!)
-                  : CircleAvatar(backgroundColor: Colors.blueGrey),
-              title: Text(restaurant['name']!),
-              subtitle: Text(restaurant['access']!),
-              trailing: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text("4.7"),
-                  Icon(Icons.star, color: Colors.amber, size: 20),
-                ],
-              ),
-            ),
-          );
-        },
+    return BlocProvider(
+      create: (_) => sl<BranchCubit>()..getBranches(categoryId),
+      child: Scaffold(
+        appBar: AppBar(title: Text(categoryName)),
+        body: BlocBuilder<BranchCubit, BranchState>(
+          builder: (context, state) {
+            if (state is BranchLoading) {
+              return Center(child: CircularProgressIndicator());
+            } else if (state is BranchLoaded) {
+              return ListView.builder(
+                itemCount: state.branches.length,
+                itemBuilder: (_, index) {
+                  final branch = state.branches[index];
+                  final place = branch.place;
+
+                  return Card(
+                    margin: EdgeInsets.all(8),
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.blueGrey,
+                        child: Icon(Icons.store, color: Colors.white),
+                      ),
+                      title: Text(place.name),
+                      subtitle: Text(branch.address),
+                      onTap: () {
+                        print('Navigating to branch details with: ${branch.place.name}');
+                        context.push('/branch-details',  extra: {'branch': branch},);
+                      },
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text("4.7"),
+                          Icon(Icons.star, color: Colors.amber, size: 20),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
+            } else if (state is BranchError) {
+              return Center(child: Text('Error: ${state.message}'));
+            }
+            return Container();
+          },
+        ),
       ),
     );
   }

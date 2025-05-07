@@ -1,11 +1,12 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:trust_zone/features/home/data/models/place.dart';
 
-class ApiService {
+class ProfileApiService {
   final Dio dio;
 
-  ApiService()
+  ProfileApiService(Object object)
       : dio = Dio(BaseOptions(
           baseUrl: 'https://trustzone.azurewebsites.net', // تحديد base URL
           headers: {
@@ -54,5 +55,26 @@ Future<void> uploadImageToSas(String sasUrl, File imageFile) async {
     ),
   );
 }
+
+
+  Future<List<BranchModel>> getBranchesByCategory(int categoryId) async {
+    final response = await dio.get(
+      'https://trustzone.azurewebsites.net/api/Branch/category/$categoryId',
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkb25pYTEyMyIsImp0aSI6IjJmNWI2MjJkLWRjNWQtNDBlZS1hZTUwLWYxMDgzOWNkNmMxNiIsIlVpZCI6IjU3NTBhNWNhLWQ4MDctNGExMC04ZDYwLTc1NDg2NmZjODcyZCIsInJvbGVzIjoiVXNlciIsImV4cCI6MTc0Nzg1Mzc4OCwiaXNzIjoiVHJ1c3Rab25lIiwiYXVkIjoiVHJ1c3Rab25lVXNlciJ9.2VzM558dhp7-ia_o3v2FevStIPg8_8hHybK2kmjDiJk',
+          'accept': '*/*',
+        },
+      ),
+    );
+
+    if (response.statusCode == 200) {
+      final List<dynamic> data = response.data;
+      return data.map((json) => BranchModel.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed to load branches');
+    }
+  }
+
 
 }
